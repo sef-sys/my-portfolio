@@ -114,6 +114,17 @@
     html[dir="rtl"] #ghost{ letter-spacing:0; }
     html[dir="rtl"] .lang-btn-en{ display:none; }
     html:not([dir="rtl"]) .lang-btn-ar{ display:none; }
+
+    /* The pinned horizontal-scroll section's GSAP math assumes LTR panel/column
+       order (track.scrollWidth, x transforms). Letting dir=rtl auto-mirror its
+       flex/grid ordering desyncs that math from what's actually painted, so the
+       pinned viewport ends up showing empty track (the black background) instead
+       of a panel. Lock the mechanic itself to LTR; re-assert RTL only on the
+       actual text content so Arabic still reads correctly within it. */
+    html[dir="rtl"] #hproj-track{ direction:ltr; }
+    html[dir="rtl"] #hproj-track .grid{ direction:ltr; }
+    html[dir="rtl"] #hproj-track .grid > div:last-child{ direction:rtl; text-align:right; }
+    html[dir="rtl"] #hproj-track > .hpanel:first-child > div{ direction:rtl; text-align:right; }
   </style>
 </head>
 
