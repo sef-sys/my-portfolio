@@ -1127,10 +1127,17 @@
         const mm = gsap.matchMedia();
         mm.add('(min-width: 1024px)', ()=>{
           const track = document.getElementById('hproj-track');
-          const getX = ()=> -(track.scrollWidth - innerWidth);
+          // Use panel count × viewport width rather than track.scrollWidth — scrollWidth
+          // measurement is inconsistent across browsers inside an RTL-direction ancestor
+          // context, and a wrong (too large) value here leaves the pin stuck permanently,
+          // blacking out everything after the projects section. Panel count is fixed and
+          // each .hpanel is exactly one viewport wide, so this is deterministic either way.
+          const panelCount = track.children.length;
+          const getDist = ()=> (panelCount - 1) * innerWidth;
+          const getX = ()=> -getDist();
           const tween = gsap.to(track,{ x:getX, ease:'none',
             scrollTrigger:{ trigger:'#featured', start:'top top',
-              end:()=> '+=' + (track.scrollWidth - innerWidth),
+              end:()=> '+=' + getDist(),
               pin:true, scrub:1, invalidateOnRefresh:true }});
 
           // Parallax the image inside each panel as it crosses the viewport
