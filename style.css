@@ -196,3 +196,33 @@ table.t td.mono{font-family:var(--mono);font-size:13px;white-space:nowrap}
   .pillars,.pillars.n3{grid-template-columns:1fr}
   .pillbar div{font-size:10.5px;padding:0 6px}
 }
+
+/* own brands */
+.case .lbl{display:block;margin-top:14px}
+.case .lbl+h3{margin-top:4px}
+.cars{border-top:1px solid var(--ink)}
+.car{display:grid;grid-template-columns:260px 1fr;gap:40px;padding:26px 0;border-bottom:1px solid var(--rule);align-items:start}
+.car h3{font-family:var(--serif);font-weight:400;font-size:26px;line-height:1.15;margin:8px 0 10px}
+.car p{margin:0;font-size:15.5px;color:var(--ink-2)}
+.sl{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.sl img{width:100%;border:1px solid var(--rule)}
+.sl figure{margin:0}
+.sl figcaption{margin-top:8px}
+.sl.sl3{gap:18px}
+.sl.top{align-items:start}
+.ys-two{align-items:start}
+.ys-two figure{margin:0}
+.ys-two img{width:100%;border:1px solid var(--rule)}
+.ys-two figcaption{margin-top:8px}
+.ys-logos{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-content:start}
+.ys-logos img{width:100%;border:1px solid var(--rule)}
+.chips{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.chip i{display:block;aspect-ratio:1;border:1px solid rgba(0,0,0,.15)}
+.chip b{display:block;font-size:14.5px;margin-top:8px}
+.chip span{font-family:var(--mono);font-size:12px;color:var(--ink-2)}
+@media (max-width:900px){
+  .car{grid-template-columns:1fr;gap:16px}
+}
+@media (max-width:560px){
+  .sl{gap:8px}
+}
