@@ -157,8 +157,15 @@ table.t td.mono{font-family:var(--mono);font-size:13px;white-space:nowrap}
 
 /* case page */
 .gallery{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.gallery figure{margin:0}
 .gallery img{width:100%;border:1px solid var(--rule)}
-.gallery img:first-child{grid-column:1/-1}
+.gallery figure:first-child{grid-column:1/-1}
+.gallery figcaption{margin-top:8px}
+.gallery.g3{grid-template-columns:repeat(4,1fr)}
+.case.lib .libbox{aspect-ratio:16/10;border:1px solid var(--ink);padding:28px;display:flex;flex-direction:column;justify-content:flex-end;gap:10px}
+.case.lib b{font-family:var(--serif);font-weight:400;font-size:30px;line-height:1.1}
+.case.lib span:last-child{color:var(--ink-2);font-size:15.5px}
+.case.lib:hover .libbox{background:var(--paper-2)}
 .pra{display:grid;grid-template-columns:repeat(3,1fr);gap:34px}
 .pra p{margin:0}
 
@@ -176,7 +183,8 @@ table.t td.mono{font-family:var(--mono);font-size:13px;white-space:nowrap}
   .idea .arx{text-align:left}
   dl.snap{grid-template-columns:1fr}
   dl.snap dt{border-bottom:0;padding-bottom:0}
-  .gallery{grid-template-columns:1fr}
+  .gallery,.gallery.g3{grid-template-columns:1fr 1fr}
+  .gallery figure:first-child{grid-column:1/-1}
 }
 @media (max-width:560px){
   .wrap{padding:0 16px}
