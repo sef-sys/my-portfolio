@@ -1,2 +1,5 @@
 images/
 .DS_Store
+portfolio-site.tgz
+deploy.command
+deploy.log
